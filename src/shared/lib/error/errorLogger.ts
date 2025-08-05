@@ -1,3 +1,4 @@
+import { toastError } from "../toast";
 // in this service should connect Sentry
 export class ErrorLogger {
   error(
@@ -5,7 +6,15 @@ export class ErrorLogger {
     error: unknown,
     stack?: React.ErrorInfo["componentStack"]
   ) {
-    console.error(`[Error][${context}]`, error || "unknown error", stack);
+    const title = `[Error][${context}]`;
+    const errorToPrint = error || "unknown error";
+
+    if (stack) {
+      console.error(title, errorToPrint, stack);
+    } else {
+      console.error(title, errorToPrint);
+    }
+    toastError(`${title}, ${errorToPrint}`);
   }
 
   warn(message: string, data?: unknown) {

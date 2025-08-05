@@ -1,12 +1,15 @@
+import type { PropsWithChildren } from "react";
 import { BrowserRouter } from "react-router-dom";
 import RootLayout from "@/shared/ui/RootLayout";
 import { MobileProvider } from "./MobileProvider";
-import type { PropsWithChildren } from "react";
+import { ToastProvider } from "./ToastProvider";
 
 const Providers = ({ children }: PropsWithChildren) => (
   <BrowserRouter>
     <MobileProvider>
-      <RootLayout>{children}</RootLayout>
+      <ToastProvider>
+        <RootLayout>{children}</RootLayout>
+      </ToastProvider>
     </MobileProvider>
   </BrowserRouter>
 );

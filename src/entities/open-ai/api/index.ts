@@ -2,10 +2,16 @@ import type { Application } from "@/entities/application/model";
 import { errorLogger } from "@/shared/lib/error";
 import OpenAI from "openai";
 
-const client = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true,
-});
+const client = (() => {
+  try {
+    return new OpenAI({
+      apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+      dangerouslyAllowBrowser: true,
+    });
+  } catch (error) {
+    errorLogger.error("sendPrompt", error);
+  }
+})();
 
 export const sendPrompt = async ({
   jobTitle,
@@ -13,6 +19,10 @@ export const sendPrompt = async ({
   skills,
   details,
 }: Pick<Application, "jobTitle" | "company" | "skills" | "details">) => {
+  if (!client) {
+    errorLogger.error("sendPrompt", "OpenAI client initiation error");
+    return;
+  }
   try {
     // simulate long request
     await new Promise((res) => setTimeout(res, 2000));

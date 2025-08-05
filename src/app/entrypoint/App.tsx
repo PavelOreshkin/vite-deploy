@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      ENTRYPOINT
+      1.0.5
       <Header />
       <div>
         <a href="https://vite.dev" target="_blank">

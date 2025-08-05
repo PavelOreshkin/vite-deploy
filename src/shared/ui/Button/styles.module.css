@@ -1,0 +1,158 @@
+.buttonRoot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.disabled {
+  cursor: auto;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+
+  & p {
+    transform: translateY(2px);
+  }
+}
+
+.smallSize {
+  height: 40px;
+  min-width: 40px;
+
+  @media (max-width: 700px) {
+    height: 34px;
+    min-width: 34px;
+  }
+}
+
+.mediumSize {
+  height: 44px;
+  padding: 0 18px;
+
+  @media (max-width: 700px) {
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  & p {
+    font-family: "Fixel Text";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+
+    @media (max-width: 700px) {
+      font-size: 14px;
+    }
+  }
+
+  & .content {
+    gap: 8px;
+  }
+}
+
+.largeSize {
+  height: 60px;
+  padding: 0 28px;
+
+  @media (max-width: 700px) {
+    height: 50px;
+    padding: 0 20px;
+  }
+
+  & p {
+    font-family: var(--font-text);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+
+    @media (max-width: 700px) {
+      font-size: 16px;
+    }
+  }
+
+  & .content {
+    gap: 12px;
+  }
+}
+
+.textVariant {
+  height: auto;
+  box-shadow: none;
+  padding: 0;
+  color: var(--gray-button-text);
+
+  & p {
+    font-family: "Fixel Text";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+
+    @media (max-width: 700px) {
+      font-size: 14px;
+    }
+  }
+
+  &:hover {
+    color: var(--gray-button-text-hover);
+    & path {
+      stroke: var(--gray-button-text-hover);
+    }
+  }
+
+  &:active {
+    color: var(--gray-button-text-active);
+    & path {
+      stroke: var(--gray-button-text-active);
+    }
+  }
+}
+
+.containedVariant {
+  background: var(--success-button-bg);
+  color: var(--white);
+
+  &.disabled {
+    background: var(--gray-border) !important;
+    color: var(--gray-button-disabled) !important;
+  }
+
+  &:hover {
+    background: var(--success-button-bg-hover);
+  }
+
+  &:active {
+    background: var(--success-button-bg-active);
+  }
+}
+
+.outlinedVariant {
+  border: 1px solid var(--gray-border);
+
+  &.disabled {
+    color: var(--gray-button-disabled) !important;
+
+    & svg {
+      opacity: 0.4;
+    }
+  }
+
+  &:hover {
+    background: var(--gray-button-outline-hover);
+  }
+
+  &:active {
+    background: var(--gray-button-outline-active);
+  }
+
+  & .loader path {
+    stroke: var(--success-button-bg);
+  }
+}

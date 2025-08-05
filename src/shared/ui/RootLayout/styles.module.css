@@ -1,0 +1,13 @@
+.root {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1120px;
+  margin: 32px 20px;
+}

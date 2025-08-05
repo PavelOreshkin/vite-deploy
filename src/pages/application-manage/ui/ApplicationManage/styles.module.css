@@ -1,0 +1,16 @@
+.applicationManageRoot {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    gap: 22px;
+  }
+}

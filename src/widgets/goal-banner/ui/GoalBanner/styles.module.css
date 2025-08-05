@@ -1,0 +1,51 @@
+.goalBannerRoot {
+  height: 376px;
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--success-bg);
+  border-radius: 12px;
+
+  @media (max-width: 700px) {
+    height: 280px;
+    margin-top: 20px;
+  }
+}
+
+.content {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: var(--gray-strong);
+  line-height: normal;
+  text-align: center;
+}
+
+.description {
+  margin-top: 16px;
+  color: var(--gray-text);
+  text-align: center;
+
+  @media (max-width: 700px) {
+    margin-top: 12px;
+  }
+}
+
+.button {
+  margin-top: 16px;
+  @media (max-width: 700px) {
+    margin-top: 12px;
+  }
+}
+
+.progress {
+  margin-top: 32px;
+  @media (max-width: 700px) {
+    margin-top: 22px;
+  }
+}

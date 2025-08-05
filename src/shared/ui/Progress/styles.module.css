@@ -1,0 +1,43 @@
+.progressRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress {
+  display: flex;
+}
+
+.segment {
+  height: 8px;
+  border-radius: 8px;
+  background: rgba(16, 24, 40, 1);
+  opacity: 0.24;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.roundShape {
+  width: 8px;
+  margin-right: 4px;
+}
+
+.longShape {
+  width: 32px;
+  margin-right: 8px;
+
+  @media (max-width: 700px) {
+    width: 26px;
+  }
+}
+
+.filled {
+  opacity: 1;
+}
+
+.description {
+  color: var(--gray-text);
+}

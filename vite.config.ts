@@ -1,13 +1,33 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 
-// https://vite.dev/config/
+/**
+ * for fast refresh
+ * @vitejs/plugin-react-swc
+ *
+ * for react compiler
+ * @vitejs/plugin-react
+ */
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: [["babel-plugin-react-compiler"]],
+      },
+    }),
+    svgr(),
+  ],
+  base: "/",
   resolve: {
     alias: {
       "@": path.resolve("./src"),
+      "@icons": path.resolve(__dirname, "src/shared/assets/icons"),
     },
+  },
+  server: {
+    port: 3000,
   },
 });
